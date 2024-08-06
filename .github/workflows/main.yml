@@ -14,11 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Runs a single command using the runners shell
+   
+    - name: Read a secret
+      run: echo "${{ secrets.JANE }} ITS ME!"
+
     - name: Read a variable
       run: echo "${{ vars.JANE }} ITS ME!"
 
-    - name: Read a secret
-      run: echo "${{ secrets.JANE }} ITS ME!"
  
 
   
