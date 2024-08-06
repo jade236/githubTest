@@ -1,14 +1,27 @@
-name: example-basic
-# This workflow represents a set of basic End-to-End tests
+name: Environment Variable workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
 on:
   workflow_dispatch:
-
+   
+    
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
- runs-on: ubuntu-latest 
+  # This workflow contains a single job called "greet"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    # Runs a single command using the runners shell
+    - name: Read a variable
+      run: echo "${{ vars.JANE }} ITS ME!"
 
- name: print repo secret
+    - name: Read a secret
+      run: echo "${{ secrets.JANE }} ITS ME!"
  
 
+  
   
   
 
